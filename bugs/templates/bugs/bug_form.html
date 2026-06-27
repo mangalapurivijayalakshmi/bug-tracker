@@ -1,0 +1,44 @@
+{% extends 'bugs/base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card shadow">
+            <div class="card-header bg-dark text-white">
+                <h4>🐛 Report a Bug</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Bug Title</label>
+                        {{ form.title }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Description</label>
+                        {{ form.description }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Priority</label>
+                        {{ form.priority }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Status</label>
+                        {{ form.status }}
+                    </div>
+
+                    <button type="submit" class="btn btn-danger w-100">
+                        Submit Bug
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

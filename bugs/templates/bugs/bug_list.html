@@ -1,0 +1,68 @@
+{% extends 'bugs/base.html' %}
+
+{% block content %}
+
+<!-- Header -->
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>🐛 All Bugs</h2>
+    <a href="{% url 'bug_create' %}" class="btn btn-danger">+ Report New Bug</a>
+</div>
+
+<!-- Bugs Table -->
+<div class="card shadow">
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Created At</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bug in bugs %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ bug.title }}</td>
+
+                    <!-- Priority Badge -->
+                    <td>
+                        {% if bug.priority == 'High' %}
+                            <span class="badge bg-danger">High</span>
+                        {% elif bug.priority == 'Medium' %}
+                            <span class="badge bg-warning text-dark">Medium</span>
+                        {% else %}
+                            <span class="badge bg-success">Low</span>
+                        {% endif %}
+                    </td>
+
+                    <!-- Status Badge -->
+                    <td>
+                        {% if bug.status == 'Open' %}
+                            <span class="badge bg-primary">Open</span>
+                        {% elif bug.status == 'In Progress' %}
+                            <span class="badge bg-info text-dark">In Progress</span>
+                        {% else %}
+                            <span class="badge bg-success">Resolved</span>
+                        {% endif %}
+                    </td>
+
+                    <td>{{ bug.created_at|date:"d M Y" }}</td>
+                    <td>
+                        <a href="{% url 'bug_update' bug.id %}" class="btn btn-sm btn-warning">Edit</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center text-muted">No bugs reported yet!</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
