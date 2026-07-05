@@ -17,3 +17,14 @@ A web application built with Python Django to track and manage bugs.
 2. python manage.py migrate
 3. python manage.py runserver
 4. Open http://127.0.0.1:8000/login/
+
+## Screenshots
+
+### All Bugs Page
+![All Bugs](screenshots/All%20Bugs%20Page.png)
+
+### Login Page
+![Login](screenshots/Login%20Page.png)
+
+### Report New Bug Page
+![Report Bug](screenshots/Report%20New%20Bug%20Page.png)
