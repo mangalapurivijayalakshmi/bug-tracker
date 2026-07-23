@@ -42,14 +42,13 @@ This project was manually tested for core flows including bug creation, editing,
 ## Screenshots
 
 ### All Bugs Page
-![All Bugs](screenshots/All%20Bugs%20Page.png)
+![All Bugs](bugtracker/screenshots/All%20Bugs%20Page.png)
 
 ### Login Page
-![Login](screenshots/Login%20Page.png)
+![Login](bugtracker/screenshots/Login%20Page.png)
 
 ### Report New Bug Page
-![Report Bug](screenshots/Report%20New%20Bug%20Page.png)
-
+![Report Bug](bugtracker/screenshots/Report%20New%20Bug%20Page.png)
 ## Future Improvements
 - Pagination for large bug lists
 - Email notifications on bug assignment
