@@ -36,4 +36,4 @@ class Bug(models.Model):
     class Meta:
         ordering = ['-created_at']   # Latest bugs show first
     def __str__(self):
-        return self.title
+        return f"{self.title} ({self.status})"
