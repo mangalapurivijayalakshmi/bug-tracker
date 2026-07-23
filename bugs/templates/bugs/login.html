@@ -3,12 +3,8 @@
 
 <head>
     <title>Login</title>
-
-    <!-- This loads Bootstrap (for nice styling) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <style>
-        /* Makes background grey color */
         body {
             background-color: #6c757d;
         }
@@ -17,40 +13,28 @@
 
 <body>
 
-    <!-- This div centers the login box on screen -->
     <div class="row justify-content-center mt-5">
-
-        <!-- This makes the box medium size -->
         <div class="col-md-4">
-
-            <!-- White card box -->
             <div class="card shadow">
-
-                <!-- Dark header at top of card -->
                 <div class="card-header bg-dark text-white text-center">
                     <h4>🐛 Bug Tracker Login</h4>
                 </div>
 
-                <!-- Form inside the card -->
                 <div class="card-body">
-
-                    <!-- form method POST means data goes to server -->
                     <form method="POST">
-
-                        <!-- Django security token (always required) -->
                         {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.GET.next }}">
 
-                        <!-- Username input box -->
                         <div class="mb-3">
                             <label class="form-label">Username</label>
                             <input type="text" 
                                    name="username" 
                                    class="form-control" 
                                    placeholder="Enter your username"
+                                   value="{{ request.POST.username|default:'' }}"
                                    required>
                         </div>
 
-                        <!-- Password input box -->
                         <div class="mb-3">
                             <label class="form-label">Password</label>
                             <input type="password" 
@@ -60,24 +44,18 @@
                                    required>
                         </div>
 
-                        <!-- Show error if wrong username/password -->
                         {% if form.errors %}
                         <div class="alert alert-danger">
                             Wrong username or password. Try again!
                         </div>
                         {% endif %}
 
-                        <!-- Login Button -->
                         <button type="submit" class="btn btn-dark w-100">
                             Login
                         </button>
-
                     </form>
-
                 </div>
             </div>
-            <!-- End card -->
-
         </div>
     </div>
 

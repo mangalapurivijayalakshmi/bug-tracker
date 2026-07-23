@@ -9,7 +9,6 @@
     <style>
         body { background-color: #f8f9fa; }
         .navbar { background-color: #2c3e50; }
-        .sidebar { min-height: 100vh; background-color: #34495e; }
     </style>
 </head>
 <body>
@@ -18,8 +17,10 @@
 <nav class="navbar navbar-dark px-4 py-3">
     <span class="navbar-brand fw-bold fs-4">🐛 Bug Tracker</span>
     <div>
+        <a href="{% url 'bug_list' %}" class="text-white text-decoration-none me-3">All Bugs</a>
+        <a href="{% url 'bug_create' %}" class="text-white text-decoration-none me-3">Report Bug</a>
         <span class="text-white me-3">Hello, {{ request.user.username }}</span>
-        <a href="/logout" class="btn btn-outline-light btn-sm">Logout</a>
+        <a href="{% url 'logout' %}" class="btn btn-outline-light btn-sm">Logout</a>
     </div>
 </nav>
 

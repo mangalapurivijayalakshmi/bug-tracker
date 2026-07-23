@@ -27,10 +27,19 @@
                         {{ form.priority }}
                     </div>
 
+                    {% if form.status %}
                     <div class="mb-3">
                         <label class="form-label fw-bold">Status</label>
                         {{ form.status }}
                     </div>
+                    {% endif %}
+
+                    {% if form.assigned_to %}
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Assign To</label>
+                        {{ form.assigned_to }}
+                    </div>
+                    {% endif %}
 
                     <button type="submit" class="btn btn-danger w-100">
                         Submit Bug
